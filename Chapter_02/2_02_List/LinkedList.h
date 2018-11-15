@@ -28,7 +28,7 @@ public:
 
 	T deleteFront();                                     //删除头节点
 	void deleteCurrent();                                //删除当前节点
-	T& data();                                           //返回当前节点数据的引用
+	T& data()const { return currPtr->data; }             //返回当前节点数据的引用
 	void clear();                                        //清空链表
 
 private:
@@ -167,25 +167,45 @@ void List<T>::insterAfter(const T& item)                     //后插
 template<class T>
 T List<T>::deleteFront()                                     //删除头节点
 {
+	reset(0);
+	deleteCurrent();
 
 }
 
 template<class T>
 void List<T>::deleteCurrent()                                //删除当前节点
 {
-
+	Node<T>* temp;
+	temp = currPtr;
+	currPtr = currPtr->next;
+	prevPtr->next = currPtr;
+	delete temp;
+	size--;
 }
 
-template<class T>
-T& List<T>::data()                                           //返回当前节点数据的引用
-{
-
-}
 
 template<class T>
 void List<T>::clear()                                        //清空链表
 {
+	reset(0);
+	while (!endOfList())
+	{
+		prevPtr = currPtr;
+		currPtr = currPtr->next;
+		delete prevPtr;
+		size--;
+	}
 
+	//Node<T>*tempPtr = front->nextNode();
+	//while (tempPtr != NULL)
+	//{
+	//	Node<T>*tempQ = tempPtr;
+	//	tempPtr = tempPtr->nextNode();
+	//	delete tempQ;
+	//	size--;
+	//}
+	rear = front;
+	currPtr = prevPtr = front;
 }
 
 template<class T>
