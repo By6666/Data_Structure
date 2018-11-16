@@ -7,7 +7,7 @@
 using namespace std;
 
 template<class T>
-class List;
+class List_self;
 
 
 struct Data
@@ -22,8 +22,8 @@ template<class T>
 class Node
 {
 public:
-	Node(const T& data, Node<T>* nextnode = NULL)
-		:data(data), nextnode(next)
+	Node(const T& data, Node<T>* nextnode = NULL)   //构造函数
+		:data(data), next(nextnode)
 	{}
 
 	T Getdata() const { return data; }
@@ -34,7 +34,7 @@ public:
 
 	void Setdata(const T& da) { data = da; }
 
-	friend List<T>;
+	friend List_self<T>;
 
 private:
 	T data;
@@ -60,4 +60,4 @@ void Node<T>::insertAfter(Node<T>* p)       //在当前节点后面插入节点
 }
 
 
-#endif // !_LIST
+#endif // !_List_self

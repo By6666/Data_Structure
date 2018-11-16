@@ -1,16 +1,20 @@
-#include "Node.h"
-
+#include "LinkedList.h"
 
 int main()
 {
-	Data a{1,"By666",99};
-	Data b(a);
+//≤‚ ‘int–Õ
+	int a[5] = {1,2,3,4,5};
+	List_self<int> b;
 
-	cout << b.num<<b.name <<b.scoure<< endl;
+	b.insertFront(a[0]);
+	b.insertRear(a[4]);
+	b.insertAt(a[2]);
+	b.insterAfter(a[3]);
+	//b.deleteCurrent();
 
+	cout << b.currentPos() << endl;
 
-
-
+	b.print();
 
 
 

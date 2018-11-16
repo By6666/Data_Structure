@@ -1,101 +1,106 @@
-#ifndef _LINKEDLIST
-#define _LINKEDLIST
+ï»¿#ifndef _LINKED
+#define _LINKED
 
+//æ­¤é“¾è¡¨å¤´èŠ‚ç‚¹è‡³å•å•æ˜¯ä¸ªèŠ‚ç‚¹ï¼Œä¸å­˜å‚¨æ•°æ®
+
+#include <cassert>
 #include "Node.h"
 
 template<class T>
-class List
+class List_self
 {
 public:
-	List();                                              //¹¹Ôìº¯Êı        
-	List(const List<T>& list);                           //¸´ÖÆ¹¹Ôìº¯Êı
-	~List();                                             //Îö¹¹º¯Êı
-	List<T>& operator = (const List<T>& list);		     //ÖØÔØ=ÔËËã·û
+	List_self();                                              //æ„é€ å‡½æ•°        
+	List_self(const List_self<T>& List_self);                           //å¤åˆ¶æ„é€ å‡½æ•°
+	~List_self();                                             //ææ„å‡½æ•°
+	List_self<T>& operator = (const List_self<T>& List_self);		     //é‡è½½=è¿ç®—ç¬¦
 
-	void print();									     //´òÓ¡Á´±íÖĞµÄÊı¾İ¼°ÊıÄ¿
-	int GetSize() const { return size; }				 //·µ»ØÁ´±íÖĞÔªËØ¸öÊı
-	bool isEmpty() const { return (front == rear) ? true : false; }   //ÊÇ·ñÎª¿Õ
+	void print();									     //æ‰“å°é“¾è¡¨ä¸­çš„æ•°æ®åŠæ•°ç›®
+	int GetSize() const { return size; }				 //è¿”å›é“¾è¡¨ä¸­å…ƒç´ ä¸ªæ•°
+	bool isEmpty() const { return (front == rear) ? true : false; }   //æ˜¯å¦ä¸ºç©º
 	 
-	void reset(int pos = 0);                             //³õÊ¼»¯ÓÎ±êÎ»ÖÃ
-	void next();                                         //ÒÆ¶¯ÓÎ±êµ½ÏÂÒ»¸ö½Úµã
-	bool endOfList() const { return (currPtr == NULL) ? true : false; }  //ÅĞ¶ÏÊÇ·ñµ½ÁËÎ²½Úµã
-	int currentPos();                                    //·µ»Øµ±Ç°ÓÎ±êÎ»ÖÃ          
+	void reset(int pos = 0);                             //åˆå§‹åŒ–æ¸¸æ ‡ä½ç½®
+	void next();                                         //ç§»åŠ¨æ¸¸æ ‡åˆ°ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+	bool endOfList_self() const { return (currPtr->next == NULL) ? true : false; }  //åˆ¤æ–­æ˜¯å¦åˆ°äº†å°¾èŠ‚ç‚¹
+	int currentPos();                                    //è¿”å›å½“å‰æ¸¸æ ‡ä½ç½®          
 	 
-	void insertFront(const T& item);					 //±íÍ·²åÈë
-	void insertRear(const T& item);                      //±íÎ²²åÈë
-	void insertAt(const T& item);                        //Ç°²å
-	void insterAfter(const T& item);                     //ºó²å
+	void insertFront(const T& item);					 //è¡¨å¤´æ’å…¥
+	void insertRear(const T& item);                      //è¡¨å°¾æ’å…¥
+	void insertAt(const T& item);                        //å‰æ’
+	void insterAfter(const T& item);                     //åæ’
 
-	T deleteFront();                                     //É¾³ıÍ·½Úµã
-	void deleteCurrent();                                //É¾³ıµ±Ç°½Úµã
-	T& data()const { return currPtr->data; }             //·µ»Øµ±Ç°½ÚµãÊı¾İµÄÒıÓÃ
-	void clear();                                        //Çå¿ÕÁ´±í
+	T deleteFront();                                     //åˆ é™¤å¤´èŠ‚ç‚¹
+	void deleteCurrent();                                //åˆ é™¤å½“å‰èŠ‚ç‚¹
+	T& data()const { return currPtr->data; }             //è¿”å›å½“å‰èŠ‚ç‚¹æ•°æ®çš„å¼•ç”¨
+	void clear();                                        //æ¸…ç©ºé“¾è¡¨
 
 private:
-	Node<T> *front, *rear;                  //±íÍ·ºÍ±íÎ²Ö¸Õë
-	Node<T> *prevPtr, *currPtr;             //¼ÇÂ¼µ±Ç°±éÀúÎ»ÖÃµÄÖ¸Õë£¬ÓÉ²åÈëºÍÉ¾³ı¸üĞÂ
-	int size;                               //±íÖĞÔªËØ¸öÊı
-	int pos;                                //µ±Ç°ÔªËØÔÚ±íÖĞµÄĞòºÅ
-	Node<T>* newNode(const T& item, Node<T>* ptrNext = NULL);   //Éú³ÉĞÂµÄ½Úµã
-	void freeNode(Node<T>* p);              //ÊÍ·Å½Úµã
-	void copy(const List<T>& L);            //¸´ÖÆÁ´±í
+	Node<T> *front, *rear;                  //è¡¨å¤´å’Œè¡¨å°¾æŒ‡é’ˆ
+	Node<T> *prevPtr, *currPtr;             //è®°å½•å½“å‰éå†ä½ç½®çš„æŒ‡é’ˆï¼Œç”±æ’å…¥å’Œåˆ é™¤æ›´æ–°
+	int size;                               //è¡¨ä¸­å…ƒç´ ä¸ªæ•°
+	int pos;                                //å½“å‰å…ƒç´ åœ¨è¡¨ä¸­çš„åºå·
+	Node<T>* newNode(const T& item, Node<T>* ptrNext = NULL);   //ç”Ÿæˆæ–°çš„èŠ‚ç‚¹
+	void freeNode(Node<T>* p);              //é‡Šæ”¾èŠ‚ç‚¹
+	void copy(const List_self<T>& L);            //å¤åˆ¶é“¾è¡¨
 
 };
 
 template<class T>
-List<T>::List()                                              //¹¹Ôìº¯Êı        
+List_self<T>::List_self()                                              //æ„é€ å‡½æ•°        
 {
-	front = rear = new Node<T>(0);
+	front = rear = new Node<T>(0);                           //åˆå§‹åŒ–é“¾è¡¨ï¼Œç”Ÿæˆå¤´èŠ‚ç‚¹ï¼Œå¤´èŠ‚ç‚¹å†…éƒ¨ä¸å­˜å‚¨æ•°æ®
 	currPtr = prevPtr = front;
 	size = 0;
 	pos = 0;
 }
 
 template<class T>
-List<T>::List(const List<T>& list)                           //¸´ÖÆ¹¹Ôìº¯Êı
+List_self<T>::List_self(const List_self<T>& List_self)                           //å¤åˆ¶æ„é€ å‡½æ•°
 {
-	size = 0;
+	size = 0;                                                //å¯¹åŸºæœ¬æˆå‘˜è¿›è¡Œåˆå§‹åŒ–
 	front = rear = new Node<T>(0);
 	currPtr = prevPtr = front;
-	copy(L);
-	cout << "use the copy structure func" << endl;
+	copy(List_self);                                                //å¤åˆ¶Lé“¾è¡¨åˆ°æ­¤é“¾è¡¨
+	cout << "use the copy structure func ï¼ï¼" << endl;
 }
 
 template<class T>
-List<T>::~List()                                             //Îö¹¹º¯Êı
+List_self<T>::~List_self()                                             //ææ„å‡½æ•°
 {
-	clear();
+	clear();                                                 //é‡Šæ”¾å«æœ‰æ•°æ®èŠ‚ç‚¹çš„å†…å­˜
 	delete front;
 }
 
 template<class T>
-List<T>& List<T>::operator = (const List<T>& list)		     //ÖØÔØ=ÔËËã·û
+List_self<T>& List_self<T>::operator = (const List_self<T>& List_self)		     //é‡è½½èµ‹å€¼â€˜=â€™è¿ç®—ç¬¦
 {
-	clear();
-	front->next = NULL;
-	copy(L);
-	cout << "µ÷ÓÃÖØÔØÔËËã·û=" << endl;
+	clear();                                                 //å…ˆæ¸…ç©ºé“¾è¡¨
+	front->next = NULL;                                      
+	copy(List_self);
+	cout << "è°ƒç”¨é‡è½½è¿ç®—ç¬¦=" << endl;
 	return *this;
 }
 
 template<class T>
-void List<T>::print()									     //´òÓ¡Á´±íÖĞµÄÊı¾İ¼°ÊıÄ¿
+void List_self<T>::print()									     //æ‰“å°é“¾è¡¨ä¸­çš„æ•°æ®åŠæ•°ç›®
 {
-	reset();
-	while (!endOfList())
+	reset(1);                                                //åˆå§‹åŒ–æ¸¸æ ‡åˆ°ç¬¬ä¸€ä¸ªå­˜å‚¨æ•°æ®çš„ä½ç½®
+	while (!endOfList_self()) 
 	{
 		cout << data() << "  ";
 		next();
-	}
-	cout << endl;
+	} 
+	cout << data() << endl;
 	cout << "size = " << GetSize() << endl;
 }
 
 template<class T>
-void List<T>::reset(int pos)                             //³õÊ¼»¯ÓÎ±êÎ»ÖÃ
+void List_self<T>::reset(int pos/*=0*/)                             //åˆå§‹åŒ–æ¸¸æ ‡ä½ç½®
 {
-	prevPtr = front;
-	currPtr = front->Getnext();
+	assert(pos >= 0 && pos <= size);
+	//prevPtr = front;
+	//currPtr = front->next;
+	currPtr = prevPtr = front;                                 //å®šä¹‰å¤´èŠ‚ç‚¹çš„ä½ç½®ä¸º0ï¼Œç¬¬ä¸€ä¸ªæœ‰æ•°æ®çš„èŠ‚ç‚¹ä¸º1èŠ‚ç‚¹
 	this->pos = pos;
 	for (int i = 0; i < pos; i++)
 	{
@@ -105,40 +110,40 @@ void List<T>::reset(int pos)                             //³õÊ¼»¯ÓÎ±êÎ»ÖÃ
 }
 
 template<class T>
-void List<T>::next()                                         //ÒÆ¶¯ÓÎ±êµ½ÏÂÒ»¸ö½Úµã
+void List_self<T>::next()                                         //ç§»åŠ¨æ¸¸æ ‡åˆ°ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 {
+	assert(!endOfList_self());
 	prevPtr = currPtr;
-	currPtr = currPtr->Getnext();
-	pos++;
+	currPtr = currPtr->next;
 }
 
 template<class T>
-int List<T>::currentPos()                                    //·µ»Øµ±Ç°ÓÎ±êÎ»ÖÃ          
+int List_self<T>::currentPos()                                    //è¿”å›å½“å‰æ¸¸æ ‡ä½ç½®          
 {
-	Node<T>* temp = front->next;
+	Node<T>* temp = front;
 	pos = 0;
 	while (temp != currPtr)
 	{
 		temp = temp->next;
-		pso++;
+		pos++;
 	}
 	return pos;
 }
 
 template<class T>
-void List<T>::insertFront(const T& item)					 //±íÍ·²åÈë
+void List_self<T>::insertFront(const T& item)					 //è¡¨å¤´æ’å…¥
 {
-	prvePtr = currPtr;
-	currPtr = newNode(item, front->nextNode());
+	prevPtr = currPtr;
+	currPtr = newNode(item, front->next);
 	front->next = currPtr;
 	if (rear == front)  rear = currPtr;
 	size++;
 }
 
 template<class T>
-void List<T>::insertRear(const T& item)                      //±íÎ²²åÈë
+void List_self<T>::insertRear(const T& item)                      //è¡¨å°¾æ’å…¥
 {
-	prvePtr = currPtr;
+	prevPtr = currPtr;
 	currPtr = newNode(item);
 	rear->next = currPtr;
     rear = currPtr;
@@ -146,35 +151,36 @@ void List<T>::insertRear(const T& item)                      //±íÎ²²åÈë
 }
 
 template<class T>
-void List<T>::insertAt(const T& item)                        //Ç°²å
+void List_self<T>::insertAt(const T& item)                        //å‰æ’
 {
+	assert(!isEmpty());                                    //å½“å‰é“¾è¡¨éç©º
 	currPtr = newNode(item, prevPtr->next);
 	prevPtr->next = currPtr;
 	size++;
 }
 
 template<class T>
-void List<T>::insterAfter(const T& item)                     //ºó²å
+void List_self<T>::insterAfter(const T& item)                     //åæ’
 {
-	prvePtr = currPtr;
+	prevPtr = currPtr;
 	Node<T>* temp = newNode(item,currPtr->next);
 	currPtr->next = temp;
-	if (currPtr == rear) rear = tempPtr;
-	currPtr = tempPtr;
+	if (currPtr == rear) rear = temp;
+	currPtr = temp;
 	size++;
 }
 
 template<class T>
-T List<T>::deleteFront()                                     //É¾³ıÍ·½Úµã
+T List_self<T>::deleteFront()                                     //åˆ é™¤å¤´å…ƒç´ èŠ‚ç‚¹
 {
-	reset(0);
+	reset(1);
 	deleteCurrent();
-
 }
 
 template<class T>
-void List<T>::deleteCurrent()                                //É¾³ıµ±Ç°½Úµã
+void List_self<T>::deleteCurrent()                                //åˆ é™¤å½“å‰èŠ‚ç‚¹
 {
+	assert(!endOfList_self());                                    //å½“å‰é“¾è¡¨éç©º
 	Node<T>* temp;
 	temp = currPtr;
 	currPtr = currPtr->next;
@@ -185,10 +191,10 @@ void List<T>::deleteCurrent()                                //É¾³ıµ±Ç°½Úµã
 
 
 template<class T>
-void List<T>::clear()                                        //Çå¿ÕÁ´±í
+void List_self<T>::clear()                                        //æ¸…ç©ºé“¾è¡¨
 {
-	reset(0);
-	while (!endOfList())
+	reset(1);
+	while (!endOfList_self())
 	{
 		prevPtr = currPtr;
 		currPtr = currPtr->next;
@@ -209,22 +215,22 @@ void List<T>::clear()                                        //Çå¿ÕÁ´±í
 }
 
 template<class T>
-Node<T>* List<T>::newNode(const T& item, Node<T>* ptrNext)   //Éú³ÉĞÂµÄ½Úµã
+Node<T>* List_self<T>::newNode(const T& item, Node<T>* ptrNext/*= NULL*/)   //ç”Ÿæˆæ–°çš„èŠ‚ç‚¹
 {
 	Node<T>* temPtr = new Node<T>(item, ptrNext);
 	return temPtr;
 }
 
 template<class T>
-void List<T>::freeNode(Node<T>* p)              //ÊÍ·Å½Úµã
+void List_self<T>::freeNode(Node<T>* p)              //é‡Šæ”¾èŠ‚ç‚¹
 {
-	delete[] p;
+	delete p;
 }
 
 template<class T>
-void List<T>::copy(const List<T>& L)            //¸´ÖÆÁ´±í
+void List_self<T>::copy(const List_self<T>& L)            //å¤åˆ¶é“¾è¡¨
 {
-	L.reset();
+	L.reset(1);
 	for (int i = 0; i < L.size; i++)
 	{
 		insertRear(L.data());
