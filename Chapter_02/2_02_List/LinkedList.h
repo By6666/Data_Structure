@@ -21,7 +21,7 @@ public:
 	 
 	void reset(int pos = 0);                             //初始化游标位置
 	void next();                                         //移动游标到下一个节点
-	bool endOfList_self() const { return (currPtr->next == NULL) ? true : false; }  //判断是否到了尾节点
+	bool endOfList_self() const { return (currPtr == NULL) ? true : false; }  //判断是否到了尾节点
 	int currentPos();                                    //返回当前游标位置          
 	 
 	void insertFront(const T& item);					 //表头插入
@@ -29,7 +29,7 @@ public:
 	void insertAt(const T& item);                        //前插
 	void insterAfter(const T& item);                     //后插
 
-	T deleteFront();                                     //删除头节点
+	void deleteFront();                                     //删除头节点
 	void deleteCurrent();                                //删除当前节点
 	T& data()const { return currPtr->data; }             //返回当前节点数据的引用
 	void clear();                                        //清空链表
@@ -90,7 +90,7 @@ void List_self<T>::print()									     //打印链表中的数据及数目
 		cout << data() << "  ";
 		next();
 	} 
-	cout << data() << endl;
+	cout << endl;
 	cout << "size = " << GetSize() << endl;
 }
 
@@ -105,7 +105,7 @@ void List_self<T>::reset(int pos/*=0*/)                             //初始化�
 	for (int i = 0; i < pos; i++)
 	{
 		prevPtr = currPtr;
-		currPtr = currPtr->Getnext();
+		currPtr = currPtr->next;
 	}
 }
 
@@ -171,16 +171,17 @@ void List_self<T>::insterAfter(const T& item)                     //后插
 }
 
 template<class T>
-T List_self<T>::deleteFront()                                     //删除头元素节点
+void List_self<T>::deleteFront()                                     //删除头元素节点
 {
 	reset(1);
 	deleteCurrent();
+
 }
 
 template<class T>
 void List_self<T>::deleteCurrent()                                //删除当前节点
 {
-	assert(!endOfList_self());                                    //当前链表非空
+	assert(!isEmpty());                                    //当前链表非空
 	Node<T>* temp;
 	temp = currPtr;
 	currPtr = currPtr->next;
@@ -193,6 +194,7 @@ void List_self<T>::deleteCurrent()                                //删除当前
 template<class T>
 void List_self<T>::clear()                                        //清空链表
 {
+	if (isEmpty()) return;
 	reset(1);
 	while (!endOfList_self())
 	{
@@ -230,11 +232,12 @@ void List_self<T>::freeNode(Node<T>* p)              //释放节点
 template<class T>
 void List_self<T>::copy(const List_self<T>& L)            //复制链表
 {
-	L.reset(1);
-	for (int i = 0; i < L.size; i++)
+	List_self<T>& L1 = const_cast<List_self<T>&>(L); //去除带入对象的常量特性
+	L1.reset(1);
+	for (int i = 0; i < L1.size; i++)
 	{
-		insertRear(L.data());
-		L.next();
+		this->insertRear(L1.data());
+		L1.next();
 	}
 }
 
