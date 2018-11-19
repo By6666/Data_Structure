@@ -1,51 +1,59 @@
 #include "Queen.h"
+#include <cmath>
 
 #define SIZE 4
-
-bool isAttack(Stack_self<int> q, int l);
+int queen[SIZE];
+bool isAttack(int* q, int hang, int t);
 
 int main()
 {
-	int s = 0;
+	int s = 0, hang_cnt = 0;
 	int init = 0;
-	Stack_self<int> queen;
-	while (queen.GetSize() <= SIZE)
+	queen[0] = 0;
+
+	while (hang_cnt < SIZE)
 	{
+		s = hang_cnt;
 		for (int i = init; i < SIZE; i++)
 		{
-			s = queen.GetSize();
-			if (!isAttack(queen, i))
+			if (!isAttack(queen, hang_cnt, i))
 			{
 				init = 0;
-				queen.Push(i);
+				queen[hang_cnt++] = i;
 				break;
 			}
 		}
-		if (s == queen.GetSize())
+		if (s == hang_cnt)
 		{
-			init = queen.Pop() + 1;
-		}
+			init = queen[--hang_cnt] + 1;
+		}	
 	}
-
-	queen.PopAll();
-
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+		{
+			if (queen[i] == j) cout << "<q>";
+			else cout << "<->";
+		}
+		cout << endl;
+	}
 
 	system("pause");
 	return 0;
 }
 
-
-
-bool isAttack(Stack_self<int> q,int l)
+bool isAttack(int* q,int hang ,int t)
 {
-	if (!q.isEmpty())
+	int offset_row = 0, offset_col = 0;
+
+	for (int i = 0; i < hang; i++)
 	{
-		if ((q.GetTopData() == l - 1) || (q.GetTopData() == l + 1))
-			return true;
-		for (int i = 0; i < q.GetSize(); i++)
-		{
-			if (q.Pop() == l) return true;
-		}
+		offset_row = abs(hang - i);
+		offset_col = abs(q[i] - t);
+
+		if ((offset_row==offset_col) || (q[i] == t))  return true;
 	}
+
+
 	return false;
 }
