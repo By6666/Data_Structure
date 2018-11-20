@@ -10,6 +10,7 @@
 #include "Stack.h"
 #include "Operator.h"
 #include <string>
+#include <iterator>
 
 
 int main()
@@ -87,6 +88,62 @@ int main()
 		result.push_back(postfix.Pop().ch);
 
 	cout << "the result is " << result << endl;    //输出结果
+
+	cout << endl;
+
+//********运算********
+	Stack_self<int> compulte;
+	int cached = 0, a = 0, b = 0;
+	
+	for (auto i = result.begin(); i < result.end(); i++)
+	{
+		if ((*i == '+') || (*i == '-') || (*i == '*') || (*i == '/') || (*i == '^'))
+		{
+			switch (*i)
+			{
+			case '+': b = compulte.Pop();
+				      a = compulte.Pop();
+					  cached = a + b;
+					  compulte.Push(cached);
+					  break;
+
+			case '-': b = compulte.Pop();
+				      a = compulte.Pop();
+				      cached = a - b;
+				      compulte.Push(cached);
+				      break;
+
+			case '*': b = compulte.Pop();
+				      a = compulte.Pop();
+				      cached = a * b;
+				      compulte.Push(cached);
+				      break;
+
+			case '/': b = compulte.Pop();
+					  a = compulte.Pop();
+					  cached = a / b;
+					  compulte.Push(cached);
+					  break;
+
+			default:
+				break;
+			}
+			cached = 0;
+		}
+		else if ((*i >= '0') && (*i <= '9'))
+		{
+			cached = cached * 10 + *i - 48;
+		}
+		else
+		{
+			//cout << cached << endl;
+			compulte.Push(cached);
+			cached = 0;
+		}
+	}
+
+	cout << "caculator result is :" << endl;
+	cout << compulte.Pop() << endl;
 
 	system("pause");
 	return 0;
