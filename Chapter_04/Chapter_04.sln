@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4_01_Tree_by_Array", "4_01_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4_02_Find_binary_tree", "4_02_Find_binary_tree\4_02_Find_binary_tree.vcxproj", "{7748ED8C-7908-408F-AF2F-F61444BEF56D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4_03_Traversal_of_tree", "4_03_Traversal_of_tree\4_03_Traversal_of_tree.vcxproj", "{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{7748ED8C-7908-408F-AF2F-F61444BEF56D}.Release|x64.Build.0 = Release|x64
 		{7748ED8C-7908-408F-AF2F-F61444BEF56D}.Release|x86.ActiveCfg = Release|Win32
 		{7748ED8C-7908-408F-AF2F-F61444BEF56D}.Release|x86.Build.0 = Release|Win32
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Debug|x64.ActiveCfg = Debug|x64
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Debug|x64.Build.0 = Debug|x64
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Debug|x86.ActiveCfg = Debug|Win32
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Debug|x86.Build.0 = Debug|Win32
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Release|x64.ActiveCfg = Release|x64
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Release|x64.Build.0 = Release|x64
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Release|x86.ActiveCfg = Release|Win32
+		{CC031BA2-E20B-4E54-B1EA-63FD8FF52924}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
