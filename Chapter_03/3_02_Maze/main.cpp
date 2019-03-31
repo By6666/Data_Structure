@@ -21,23 +21,23 @@ int main()
 		maze[current.x][current.y] = 2;
 		if (UP == 0)
 		{
-			current.x -= 1;
 			path.Push(current);
+			current.x -= 1;
 		}
 		else if (DOUWN == 0)
 		{
-			current.x += 1;
 			path.Push(current);
+			current.x += 1;
 		}
 		else if (LEFT == 0)
 		{
-			current.y -= 1;
 			path.Push(current);
+			current.y -= 1;
 		}
 		else if (RIGHT == 0)
 		{
-			current.y += 1;
 			path.Push(current);
+			current.y += 1;
 		}
 		else if (current.x == ExitX && current.y == ExitY)   break;
 
