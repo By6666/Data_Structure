@@ -1,4 +1,4 @@
-主要内容：
+﻿主要内容：
 
 Chapter_01：
 1_01: 求N的阶乘
@@ -37,4 +37,15 @@ Chapter_05：
 5_03: 遍历图(深度优先遍历(dfs)和广度优先遍历(bfs))
 5_04: 生成树(spanning tree)使用(Kruskal and Prim)
 5_05: 图的最短路径(shortest path) 使用(Dijkstra and Floyd)
+
+Chapter_06：
+6_01: 冒泡排序法(Bubble_Sorting)
+6_02: 选择排序法(Selection_Sorting)
+6_03: 插入排序法(Insert_Sorting)
+6_04: 希尔排序法(Shell_Sorting)
+6_05: 快速排序法(Quick_Sorting)
+6_06: 堆积排序法(Heap_Sorting)
+6_07: 计数排序法(Counting_Sorting)
+6_08: 基数排序法(Radix_Sorting)
+
 Loading.....

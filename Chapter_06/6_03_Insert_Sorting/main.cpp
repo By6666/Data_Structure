@@ -1,4 +1,4 @@
-//Insert_sorting
+﻿//Insert_sorting  插入排序法
 //averge 0.48s
 //best   0.00s
 //wrost  0.95s
@@ -9,18 +9,14 @@
 #include <stdlib.h>
 using namespace std;
 
-#define N 30000
+#define N 30000 //随机数的个数
 
 int main()
 {
-	int data[N];
+	int data[N];//存放随机数
 
 	for (int i = 0; i < N; i++)
-	{
-		data[i] = rand();
-		//cout << data[i] << " ";
-	}
-	//cout << endl;
+		data[i] = rand();//获取随机数
 
 
 	clock_t start, end;
@@ -28,15 +24,15 @@ int main()
 	int prevIndex, temp;
 	for (int i = 1; i < N; i++)
 	{
-		prevIndex = i - 1;
-		temp = data[i];
+		prevIndex = i - 1;//已经排好的下标最大值
+		temp = data[i];   //将要插入的值
 
 		while (prevIndex >= 0 && data[prevIndex] > temp)
 		{
-			data[prevIndex + 1] = data[prevIndex];
+			data[prevIndex + 1] = data[prevIndex];//对插入的数进行移位
 			prevIndex--;
 		}
-		data[prevIndex + 1] = temp;
+		data[prevIndex + 1] = temp;//插入
 	}
 	end = clock();
 
@@ -46,9 +42,9 @@ int main()
 	//}
 	//cout << endl;
 
-	printf("Spend time %.5f seconds!!\n", (float)(end - start) / CLOCKS_PER_SEC);
+	printf("Spend time %.5f seconds!!\n", (float)(end - start) / CLOCKS_PER_SEC);//输出耗时
 
-
+	//测试最好情况下排序耗时
 	start = clock();
 	for (int i = 1; i < N; i++)
 	{
@@ -65,6 +61,8 @@ int main()
 	end = clock();
 	printf("Spend time %.5f seconds, in best env!!\n", (float)(end - start) / CLOCKS_PER_SEC);
 
+
+	//测试最坏情况下的排序耗时
 	start = clock();
 	for (int i = 1; i < N; i++)
 	{
