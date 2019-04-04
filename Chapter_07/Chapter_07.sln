@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB9E0771-94C3-4692-8A05-4E22C494A4D9}"
+	ProjectSection(SolutionItems) = preProject
+		Data_src.h = Data_src.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7_01_Sequence_Searching", "7_01_Sequence_Searching\7_01_Sequence_Searching.vcxproj", "{7800A672-58ED-47CB-AE00-A8EB325AF021}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7_02_Binary_Searching", "7_02_Binary_Searching\7_02_Binary_Searching.vcxproj", "{CB8C1C88-6B46-4C60-9015-A27B6754E12F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7_03_Interpolation_Searching", "7_03_Interpolation_Searching\7_03_Interpolation_Searching.vcxproj", "{C66B52A8-728F-4090-A2E4-801613093488}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7_04_Fibonacci_Searching", "7_04_Fibonacci_Searching\7_04_Fibonacci_Searching.vcxproj", "{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Debug|x64.ActiveCfg = Debug|x64
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Debug|x64.Build.0 = Debug|x64
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Debug|x86.ActiveCfg = Debug|Win32
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Debug|x86.Build.0 = Debug|Win32
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Release|x64.ActiveCfg = Release|x64
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Release|x64.Build.0 = Release|x64
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Release|x86.ActiveCfg = Release|Win32
+		{7800A672-58ED-47CB-AE00-A8EB325AF021}.Release|x86.Build.0 = Release|Win32
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Debug|x64.ActiveCfg = Debug|x64
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Debug|x64.Build.0 = Debug|x64
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Debug|x86.ActiveCfg = Debug|Win32
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Debug|x86.Build.0 = Debug|Win32
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Release|x64.ActiveCfg = Release|x64
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Release|x64.Build.0 = Release|x64
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Release|x86.ActiveCfg = Release|Win32
+		{CB8C1C88-6B46-4C60-9015-A27B6754E12F}.Release|x86.Build.0 = Release|Win32
+		{C66B52A8-728F-4090-A2E4-801613093488}.Debug|x64.ActiveCfg = Debug|x64
+		{C66B52A8-728F-4090-A2E4-801613093488}.Debug|x64.Build.0 = Debug|x64
+		{C66B52A8-728F-4090-A2E4-801613093488}.Debug|x86.ActiveCfg = Debug|Win32
+		{C66B52A8-728F-4090-A2E4-801613093488}.Debug|x86.Build.0 = Debug|Win32
+		{C66B52A8-728F-4090-A2E4-801613093488}.Release|x64.ActiveCfg = Release|x64
+		{C66B52A8-728F-4090-A2E4-801613093488}.Release|x64.Build.0 = Release|x64
+		{C66B52A8-728F-4090-A2E4-801613093488}.Release|x86.ActiveCfg = Release|Win32
+		{C66B52A8-728F-4090-A2E4-801613093488}.Release|x86.Build.0 = Release|Win32
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Debug|x64.ActiveCfg = Debug|x64
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Debug|x64.Build.0 = Debug|x64
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Debug|x86.ActiveCfg = Debug|Win32
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Debug|x86.Build.0 = Debug|Win32
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Release|x64.ActiveCfg = Release|x64
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Release|x64.Build.0 = Release|x64
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Release|x86.ActiveCfg = Release|Win32
+		{FF939FCA-CFB3-42BF-8735-3E1FEC8F8C8D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDA2480B-A2ED-471E-B9B3-740411E299AE}
+	EndGlobalSection
+EndGlobal

@@ -48,4 +48,10 @@ Chapter_06：
 6_07: 计数排序法(Counting_Sorting)
 6_08: 基数排序法(Radix_Sorting)
 
+Chapter_07：
+7_01: 线性查找(Sequence_Searching)
+7_02: 二分查找(Binary_Searching)
+7_03: 插值查找(Interpolation_Searching)
+7_04: Fibonacci查找(Fibonacci_Searching)
+
 Loading.....
