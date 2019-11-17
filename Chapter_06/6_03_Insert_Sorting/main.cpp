@@ -7,6 +7,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 #define N 30000 //随机数的个数
@@ -81,4 +82,19 @@ int main()
 
 	system("pause");
 	return 0;
+}
+
+
+// 最新一次更新Insert sort
+void InsertSort(std::vector<int>& data) {
+	for (int i = 1; i < data.size(); ++i) {
+		int prev_index = i - 1;
+		int temp = data[i];
+
+		while (prev_index >= 0 && data[prev_index] > temp) {
+			data[prev_index + 1] = data[prev_index];
+			--prev_index;
+		}
+		data[prev_index + 1] = temp;
+	}
 }

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 #define N 30000 //随机数的个数
@@ -96,4 +97,24 @@ int main()
 	
 	system("pause");
 	return 0;
+}
+
+// 最新一次更新 Shell sort
+void ShellSort(std::vector<int>& data) {
+	int div = 2;
+	int jump = data.size() / div;
+
+	while (jump != 0) {
+		for (int i = jump; i < data.size(); ++i) {
+			int prev_index = i - jump;
+			int temp = data[i];
+
+			while (prev_index >= 0 && data[prev_index] > temp) {
+				data[prev_index + jump] = data[prev_index];
+				prev_index -= jump;
+			}
+			data[prev_index + jump] = temp;
+		}
+		jump /= div;
+	}
 }

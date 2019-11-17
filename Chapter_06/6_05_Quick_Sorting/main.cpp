@@ -7,6 +7,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 void quick_sort(int lf, int rg);//快速排序函数，需要输入待排序的左右下标
@@ -78,4 +79,40 @@ void quick_sort(int lf, int rg)
 
 	}
 
+}
+
+
+// 最新一次更新  Quick sort(挖坑)
+void QuickSort(std::vector<int>& data, int start, int end) {
+	if (start >= end) return;
+
+	int i = start, j = end, key = data[start];
+
+	while (i < j) {
+		while (i < j && data[j] >= key) --j;
+		data[i] = data[j];
+		while (i < j && data[i] <= key) ++i;
+		data[j] = data[i];
+	}
+	data[i] = key;
+	QuickSort(data, start, i - 1);
+	QuickSort(data, i + 1, end);
+
+}
+
+// 最新一次更新 Quick sort by self (基础)
+void QuickSort_self(std::vector<int>& data, int start, int end) {
+	if (start >= end) return;
+
+	int i = start, j = end, temp = data[start];
+
+	while (i < j) {
+		while (i < j && data[j] >= temp) --j;
+		while (i < j && data[i] <= temp) ++i;
+		if (i < j) std::swap(data[i], data[j]);
+	}
+
+	std::swap(data[i], data[start]);
+	QuickSort_self(data, start, i - 1);
+	QuickSort_self(data, i + 1, end);
 }

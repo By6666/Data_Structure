@@ -39,6 +39,11 @@ void ShortestPath_Dijkstra(int path[][3], int row, int start)  //Dijkstra算法
 	while (1) //循环
 	{
 		int cur = Findmin(Dis, S, S_num);
+		if (cur == -1)//如果返回-1表示没有可搜寻的点了
+		{
+			cout << "Dijkstra algorithm result following :" << endl;
+			break;
+		}
 		S[S_num++] = cur;
 		if (S_num == N)              //循环结束条件,当S数组中存满数据
 		{
@@ -73,7 +78,7 @@ void ShortestPath_Dijkstra(int path[][3], int row, int start)  //Dijkstra算法
 int Findmin(int* dis, int* s, int s_size)  //寻找dis最小点
 {
 	int min = 1000;
-	int t = 0;
+	int t = -1;
 	for (int i = 0; i < N; i++)
 	{
 		int flag = 1;
@@ -102,7 +107,7 @@ void Min(int* d1, int* d2, int t)  //Dijkstra算法的核心,调教dis中的值
 {
 	for (int i = 0; i < N; i++)
 	{
-		if (d2[i] != -1 && d1[t] != -1)
+		if (d2[i] != -1)
 		{
 			if (d1[i] == -1) d1[i] = d2[i] + d1[t];
 			else if (d1[i] > (d2[i] + d1[t]))

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 #define N 30000 //定义随机数的个数
@@ -76,4 +77,15 @@ int main()
 
 	system("pause");
 	return 0;
+}
+
+// 最新一次更新 Select Sort
+void SelectSort(std::vector<int>& data) {
+	for (int i = 0; i < data.size() - 1; ++i) {
+
+		for (int j = i + 1; j < data.size(); ++j) {
+			if (data[i] > data[j]) std::swap(data[i], data[j]);
+			else continue;
+		}
+	}
 }

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 #define N 30000  //使用3w个随机数进行测试
@@ -65,4 +66,15 @@ int main()
 
 	system("pause");
 	return 0;
+}
+
+
+// 最新一次更新BubbleSort
+void BubbleSot(std::vector<int>& data) {
+	for (int i = 0; i < data.size(); ++i) {
+		for (int j = 0; j < data.size() - 1; ++j) {
+			if (data[j] > data[j + 1]) std::swap(data[j], data[j + 1]);
+			else continue;
+		}
+	}
 }
